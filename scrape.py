@@ -104,6 +104,7 @@ def get_all_entries():
         cur_df = get_entries_from_url(url)
         df = pd.concat([df, cur_df], ignore_index=True)
     
+    df.to_csv("total_dataset.csv")
     return df
 
 
