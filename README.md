@@ -3,6 +3,15 @@
 [Ekşi Sözlük](https://eksisozluk.com/) is one of the most popular social media platforms in Turkey. Users discuss every topic such as (Education, Relationships etc). 
 So I wanted to create a simple text classification example. 
 
+To test some sentences, I added a simple flask application. You need to write 
+
+```
+set FLASK_APP=app.py
+flask run
+```
+
+After that you can see the simple web app.
+
 ## DATASET
 
 I created dataset by scraping the website. You can use the **scrape.py** to do it.
