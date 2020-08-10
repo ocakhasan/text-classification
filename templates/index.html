@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<h1>Welcome to Flask App</h1>
+	<h4>Please enter some text to classify</h4>
+    <form method="post" action="/" enctype="multipart/form-data">
+		<dl>
+			<p>
+				<input type="text" name="text" autocomplete="off" required>
+			</p>
+		</dl>
+		<p>
+			<input type="submit" value="Submit">
+		</p>
+	</form>
+	{% if sentence %}
+	<p>Your sentence is <strong>{{sentence}}</strong></p>
+	{% endif %}
+	{% if result %}
+	<p>The predicted label is <strong>{{result}}</strong></p>
+	{% endif %}
+</body>
+</html>
