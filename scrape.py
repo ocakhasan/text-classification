@@ -57,13 +57,15 @@ def get_entries_from_url(url):
     uClient.close()
     page_soup = BeautifulSoup(page_html, "html.parser")
     containers = page_soup.find("ul", id="entry-item-list").find_all("li")
-    page_number = page_soup.find(
-        "div", {"class": "pager"}).get("data-pagecount")
-    title = page_soup.find("div", id="topic").find(
-         "h1", id="title").get("data-title")
+    try:
+        page_number = page_soup.find(
+            "div", {"class": "pager"}).get("data-pagecount")
+        title = page_soup.find("div", id="topic").find(
+            "h1", id="title").get("data-title")
 
-    total_page = int(page_number)
-
+        total_page = int(page_number)
+    except:
+        total_page = 1
 
     for i in range(1, int(total_page) + 1):
         cur_url = raw_url + "&p=" + str(i)
@@ -104,7 +106,7 @@ def get_all_entries():
         cur_df = get_entries_from_url(url)
         df = pd.concat([df, cur_df], ignore_index=True)
     
-    df.to_csv("total_dataset.csv")
+    df.to_csv("total_dataset2.csv")
     return df
 
 
